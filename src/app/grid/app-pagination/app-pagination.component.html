@@ -1,0 +1,20 @@
+<html>
+<nav aria-label="page navigation example" class="nav">
+  <ul class="pagination">
+    <li (click)="onClickPage(activePage - 1)" class="page-item"><a class="page-link" href="javascript:void(0);"><</a>
+    </li>
+    <li (click)="onClickPage(item)" *ngFor="let item of pages" [ngClass]="{'active': activePage === item}"
+        class="page-item"><a class="page-link" href="javascript:void(0);">{{item}}</a></li>
+    <li (click)="onClickPage(activePage + 1)" class="page-item"><a class="page-link" href="javascript:void(0);">></a>
+    </li>
+  </ul>
+</nav>
+</html>
+
+<style>
+  .nav li {
+    display: inline-block;
+    font-size: 20px;
+    padding: 20px;
+  }
+</style>

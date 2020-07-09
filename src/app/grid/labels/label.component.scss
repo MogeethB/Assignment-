@@ -1,0 +1,44 @@
+.container {
+  padding: 0 50px;
+  display: grid;
+  grid-template-columns: auto;
+
+
+  &.with-det {
+    grid-template-columns: auto 40%;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .container {
+    &.with-det {
+      grid-template-columns: auto;
+      grid-template-rows: auto auto;
+    }
+  }
+}
+
+.table {
+  width: 100%;
+
+}
+
+.row {
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f6f6f6;
+  }
+}
+
+.selected {
+  background-color: #f1f1f6;
+}
+
+.label-det {
+  padding: 14px;
+  background-color: #f1f1f6;
+  border-radius: 8px;
+}
+
+

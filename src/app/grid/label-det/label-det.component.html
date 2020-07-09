@@ -1,0 +1,24 @@
+<table [dataSource]="dataSource" class="table mat-elevation-z1" mat-table
+       matSort>
+
+  <ng-container matColumnDef="action">
+    <th *matHeaderCellDef mat-header-cell mat-sort-header>Task data</th>
+    <td *matCellDef="let element" mat-cell> {{element.taskdataRowId}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="taggers">
+    <th *matHeaderCellDef mat-header-cell mat-sort-header> taggers</th>
+    <td *matCellDef="let element" mat-cell>
+      <div class="taggers-list">
+        <div *ngFor="let tagger of element.assignment?.users" class="tagger">
+          <img [matTooltip]="tagger" alt="" src="/assets/user.png">
+        </div>
+      </div>
+    </td>
+  </ng-container>
+  <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+  <tr (click)="openTask(row)" *matRowDef="let row; columns: displayedColumns;" mat-row
+      matTooltip="click to open in live review" matTooltipPosition="before"
+      style="cursor: pointer"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[10]" showFirstLastButtons mj></mat-paginator>

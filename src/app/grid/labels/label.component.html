@@ -1,0 +1,42 @@
+<div [class.with-det]="selectedRow" class="container">
+
+  <div>
+    <mat-form-field>
+      <mat-label>Search</mat-label>
+      <input #input (keyup)="startSearch()" [(ngModel)]="searchVal" matInput placeholder="search">
+    </mat-form-field>
+
+    <table [dataSource]="data" class="table mat-elevation-z1" mat-table
+           matSort>
+      <ng-container matColumnDef="name">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header> Label</th>
+        <td *matCellDef="let element" mat-cell> {{element.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="count">
+        <th *matHeaderCellDef mat-header-cell> Count</th>
+        <td *matCellDef="let element" mat-cell> {{element.count}} </td>
+      </ng-container>
+      <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+      <tr>
+        <!-- <td>sss</td>
+        <td>sss</td> -->
+      </tr>
+      <tr (click)="selectRow(row)" *matRowDef="let row; columns: displayedColumns;"
+          [class.selected]="row == selectedRow"
+          class="row"
+          mat-row
+      ></tr>
+    </table>
+    <mat-paginator [length]="resultsLength" [pageSizeOptions]="[10]" showFirstLastButtons></mat-paginator>
+
+  </div>
+  <div *ngIf="selectedRow" class="label-det">
+    <div style="display: flex; align-items: center">
+      <h1 style="flex-grow: 1">{{selectedRow.name}}</h1>
+      <button (click)="unSelectRow()" color="warn" mat-raised-button>close</button>
+    </div>
+    <app-label-det [label]="selectedRow"></app-label-det>
+  </div>
+
+</div>

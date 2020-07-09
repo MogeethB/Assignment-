@@ -1,0 +1,19 @@
+.table {
+  width: 100%;
+}
+
+.taggers-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tagger {
+  width: 35px;
+  height: 35px;
+}
+
+.tagger img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
